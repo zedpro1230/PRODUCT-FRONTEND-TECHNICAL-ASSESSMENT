@@ -4,7 +4,9 @@ import AlbumPage from "./pages/AlbumPage";
 import AlbumDetail from "./pages/AlbumDetail";
 import UserPage from "./pages/UserPage";
 import UserDetail from "./pages/UserDetail";
-import { ActiveItemSideBarProvider } from "./hooks/ActiveItemSideBar";
+import ErrorPage from "./pages/ErrorPage";
+
+import { DataContextProvider } from "./context/DataContext";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,20 +16,21 @@ import {
 
 function App() {
   return (
-    <ActiveItemSideBarProvider>
+    <DataContextProvider>
       <Router>
         <Routes>
           <Route
             path="/"
-            element={<Navigate to="/albums/?pageSize=20&current=1" replace />}
+            element={<Navigate to="/albums?pageSize=20&current=1" replace />}
           />
           <Route path="/albums" element={<AlbumPage />} />
           <Route path="/albums/:id" element={<AlbumDetail />} />
           <Route path="/users" element={<UserPage />} />
           <Route path="/users/:id" element={<UserDetail />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
-    </ActiveItemSideBarProvider>
+    </DataContextProvider>
   );
 }
 

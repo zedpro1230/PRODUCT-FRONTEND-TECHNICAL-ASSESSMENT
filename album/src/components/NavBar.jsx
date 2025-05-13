@@ -1,5 +1,3 @@
-import React from "react";
-
 function NavBar() {
   return (
     <nav className="w-full flex justify-start items-center bg-white  p-4 fixed top-0 left-0 z-10 right-0">

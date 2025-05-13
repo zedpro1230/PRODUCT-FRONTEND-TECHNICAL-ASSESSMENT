@@ -14,3 +14,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@theme{
+  
+  --breakpoint-desktop: 1280px;
+  --breakpoint-mobile: 640px;
+}
